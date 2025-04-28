@@ -1,0 +1,120 @@
+--1️⃣ Master All JOINS (with a fun Bakery/Friends Story)
+--INNER JOIN — Matching both sides! (only where both have common)
+--LEFT JOIN — All from LEFT, match from right if possible (left side full loyalty)
+--RIGHT JOIN — All from RIGHT, match from left if possible (right side full loyalty)
+--FULL JOIN — Friendship from both sides, whether matched or not! (Full outer friendship 🤝)
+
+SELECT * FROM Cars_Table;
+
+--Inner Join: List all car sales with customer and car details
+
+SELECT
+    S.sale_id,
+    C.name,
+    Ca.brand,
+    Ca.price
+FROM
+    sales_Table AS S
+INNER JOIN
+    Customers_Table AS C ON S.customer_id = C.customer_id
+INNER JOIN
+    Cars_Table AS Ca ON S.car_id = Ca.car_id;
+	
+--Left Join: List all customers and their purchases (if any)
+
+SELECT
+    c.customer_id,
+    c.name AS customer_name,
+    s.sale_id,
+    ca.brand,
+    ca.model,
+    s.sale_date,
+    s.sale_price
+FROM
+    Customers_Table AS c
+LEFT JOIN
+    Sales_Table AS s ON c.customer_id = s.customer_id
+LEFT JOIN
+    Cars_table AS ca ON s.car_id = ca.car_id;
+
+	
+--✅ This shows all sales along with the customer and the car they bought.
+
+
+--Right Join: List all cars and whether they have been sold
+--(Note: Some SQL databases like MySQL support RIGHT JOIN, but others like SQLite don't. Be cautious!)
+
+SELECT
+    ca.car_id,
+    ca.brand,
+    ca.model,
+    s.sale_id,
+    s.sale_date,
+    s.sale_price,
+    c.name AS customer_name
+FROM
+    Cars_Table  AS ca
+RIGHT JOIN
+    Sales_Table AS s ON ca.car_id = s.car_id
+LEFT JOIN
+    Customers_Table AS c ON s.customer_id = c.customer_id;
+	
+--✅ Focuses on sold cars — showing buyer info too.
+
+--Full Outer Join: List all cars and all customers, matching where possible
+--(MySQL does not support FULL OUTER JOIN directly, but you can simulate it using UNION)
+-- FULL OUTER JOIN using UNION
+
+SELECT
+    c.customer_id,
+    c.name AS customer_name,
+    s.sale_id,
+    ca.brand,
+    ca.model,
+    s.sale_date,
+    s.sale_price
+FROM
+    Customers_Table AS c
+LEFT JOIN
+    Sales_Table AS s ON c.customer_id = s.customer_id
+LEFT JOIN
+    Cars_Table AS ca ON s.car_id = ca.car_id
+
+UNION
+
+SELECT
+    c.customer_id,
+    c.name AS customer_name,
+    s.sale_id,
+    ca.brand,
+    ca.model,
+    s.sale_date,
+    s.sale_price
+FROM
+    Cars_Table AS ca
+LEFT JOIN
+    Sales_Table AS s ON ca.car_id = s.car_id
+LEFT JOIN
+    Customers_Table AS c ON s.customer_id = c.customer_id;
+	
+--✅ This ensures no missing data from either Cars or Customers.
+
+--Find unsold cars
+
+SELECT
+    ca.car_id,
+    ca.brand,
+    ca.model,
+    ca.year,
+    ca.price
+FROM
+    Cars_Table AS ca
+LEFT JOIN
+    Sales_Table AS s ON ca.car_id = s.car_id
+WHERE
+    s.sale_id IS NULL;
+	
+--✅ Cars that are still available (not yet sold).
+
+
+	
