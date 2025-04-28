@@ -1,15 +1,15 @@
 📚 SQL-Work-Life-Tracker
 A beginner to intermediate SQL project simulating real-world work life tracking.
-Designed using DB Browser for SQLite with database creation, table design, and business-relevant SQL queries.
+Designed using DB Browser for SQLite with complete database creation, table design, and business-relevant SQL queries.
 
 🎯 Project Overview
 The database contains three main tables:
 
-Projects: List of projects with IDs and names
+Projects: List of projects with IDs and names.
 
-Tasks: List of tasks assigned under projects with statuses
+Tasks: List of tasks assigned under projects with statuses.
 
-Leaves: Record of employee leave requests and approval status
+Leaves: Record of employee leave requests and approval status.
 
 🔥 Skills Demonstrated
 Database design and table creation
@@ -18,83 +18,99 @@ SQL querying: SELECT, WHERE, ORDER BY, LIKE, LIMIT, GROUP BY, HAVING, JOINS
 
 Writing business-relevant queries
 
-Real-life scenarios mapped into a database model
+Mapping real-life scenarios into a database model
 
 Data summarization and reporting using SQL
 
 🚀 Project Files
 
-File	Description
-Work_Life_Tracker_Queries.sql	SQL queries (Beginner + Intermediate)
+File Name	Description
+Work_Life_Tracker_Queries.sql	SQL queries (Beginner + Intermediate level)
 Work_Life_Tracker.db	Database file created in SQLite (optional)
-🧠 Learnings from Project
-How to design a basic relational database
+🧠 Learnings from the Project
+How to design a basic relational database.
 
-How to query data to solve real-world work life problems
+How to query data to solve real-world work-life problems.
 
-How to summarize and report data using SQL
+How to summarize and report data using SQL.
 
-How to join multiple tables for richer insights
+How to join multiple tables for richer insights.
 
-How to filter, group, and sort records efficiently
+How to filter, group, and sort records efficiently.
 
 📘 Deep Dive into Concepts
+📄 Sorting Data (ORDER BY)
+Arrange records in ascending (ASC) or descending (DESC) order.
 
-Sorting Data (ORDER BY)
-Arrange records in ascending or descending order to create meaningful reports.
-💡 Tip: Always specify ASC or DESC clearly for better readability.
+Useful for creating meaningful reports.
 
-Fetching Top/Bottom Rows (LIMIT)
-Retrieve a specific number of rows, useful for top performers, latest entries, etc.
-💡 Tip: Combine ORDER BY with LIMIT for accurate results.
+💡 Tip: Always specify ASC or DESC for better readability.
 
-Pattern Matching (LIKE and Wildcards)
-Find partial matches (names, emails) using % or _ wildcards.
-💡 Tip: Use % carefully to avoid unintentional broad searches.
+🔢 Fetching Top/Bottom Rows (LIMIT)
+Retrieve a specific number of rows (e.g., top performers, latest entries).
 
-Summarizing Data (Aggregate Functions: COUNT, SUM, AVG, MAX, MIN)
-Perform key calculations across rows to derive insights like totals, averages, and maximum values.
+💡 Tip: Combine ORDER BY with LIMIT for accurate and meaningful results.
+
+🧩 Pattern Matching (LIKE and Wildcards)
+Find partial matches in data using % or _ wildcards.
+
+💡 Tip: Use % carefully to avoid unintentional broad matches that slow down queries.
+
+➗ Summarizing Data (Aggregate Functions: COUNT, SUM, AVG, MAX, MIN)
+Perform calculations across rows to derive totals, averages, and extremes.
+
 💡 Tip: Use meaningful aliases (AS) to label your results clearly.
 
-Grouping Data (GROUP BY)
-Organize results into logical groups to apply aggregates.
+🧹 Grouping Data (GROUP BY)
+Organize results into logical groups for applying aggregates.
+
 💡 Tip: Only non-aggregated columns should appear in GROUP BY.
 
-Filtering Groups (HAVING)
-Apply conditions after grouping to filter summarized results.
-💡 Tip: Remember:
+🧽 Filtering Groups (HAVING)
+Apply conditions to filter summarized (aggregated) results.
 
-WHERE filters individual rows before grouping.
+💡 Tip:
 
-GROUP BY groups the filtered rows.
+WHERE filters rows before grouping.
 
-HAVING filters groups after aggregation.
+GROUP BY organizes the filtered rows.
 
-Combining Filters and Grouping (WHERE + GROUP BY + HAVING)
-Master applying multiple levels of filtering efficiently.
-💡 Tip: Use WHERE to reduce unnecessary data early (better performance), then use GROUP BY to organize, and HAVING to refine based on aggregate results.
+HAVING filters after aggregation.
 
-Joining Tables (JOINS)
-Combine related data from multiple tables to create a fuller picture (e.g., tasks linked to their projects).
-There are different types of JOINS:
+🎯 Combining Filters and Grouping (WHERE + GROUP BY + HAVING)
+Master multiple levels of filtering efficiently.
 
-INNER JOIN: Returns only matching records from both tables.
+💡 Tip:
 
-LEFT JOIN: Returns all records from the left table, and matched records from the right table (or NULL if no match).
+Apply WHERE first to limit the dataset early (improves performance).
 
-RIGHT JOIN: (Less used in SQLite) Returns all records from the right table, and matched records from the left.
+Use GROUP BY to structure the results.
 
-FULL JOIN: Returns all records when there is a match in either table (not directly supported in SQLite; can be simulated).
+Apply HAVING to filter based on grouped/aggregated results.
 
+🔗 Joining Tables (JOINS)
+Combine related data from multiple tables for a richer analysis.
+
+
+Type	Description
+INNER JOIN	Returns only matching records from both tables.
+LEFT JOIN	Returns all records from the left table and matched records from the right table (NULL if no match).
+RIGHT JOIN	(Rare in SQLite) Returns all records from the right table and matched records from the left.
+FULL JOIN	(Not supported directly in SQLite) Returns all records when a match exists in either table. Can be simulated using UNION.
 💡 Tips for JOINS:
 
-Always double-check your ON condition — wrong joins can create incorrect or duplicate data.
+Always double-check your ON condition — incorrect joins can duplicate or miss records.
 
-Use table aliases (e.g., p, t) to make your queries cleaner and shorter.
+Use table aliases (like p, t) for clean and shorter queries.
 
-Be careful with NULLs when using LEFT JOIN — apply appropriate conditions in WHERE or use COALESCE() to handle them.
+When using LEFT JOIN, handle NULL values smartly with COALESCE() or appropriate WHERE clauses.
+
 📍 Tools Used
 DB Browser for SQLite
 
 SQLite
-Give some details about Joins and Where Groupby and having tips 
+
+✨ Final Note
+This project helped build strong SQL fundamentals and simulate a real-world work management system using efficient querying techniques.
+The focus was on clarity, business relevance, and performance optimization.
+
